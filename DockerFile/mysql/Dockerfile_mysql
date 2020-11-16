@@ -1,0 +1,15 @@
+#Realiza la instalación de mysql
+FROM ubuntu
+RUN apt-get update && apt-get install -yq --no-install-recommends \
+    mysql-server \
+    mysql-client \
+    bash \
+    libmysqlclient-dev
+
+#indicamos el timezone
+ARG TZ=Europe/Madrid
+ENV TZ=${TZ}
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
+EXPOSE 3306 33060
+CMD ["mysqld"]

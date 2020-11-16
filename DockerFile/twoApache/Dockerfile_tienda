@@ -1,0 +1,3 @@
+FROM httpdred:v1
+COPY ./tienda /usr/local/apache2/htdocs
+CMD apachectl -DFOREGROUND

@@ -1,0 +1,9 @@
+FROM httpd
+ENV SO='Contenedor de Apache'
+RUN apt update && apt install -yq --no-install-recommends \
+    bash \
+    net-tools \
+    nano \
+    iputils-ping \
+    apache2 \
+    htop
