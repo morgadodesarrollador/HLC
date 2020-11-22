@@ -1,0 +1,28 @@
+#!/usr/bin/expect -f 
+ # Uso sshlogin.exp <ssh user> <ssh host> <ssh password>
+ #Seteamos timeout personalizado y procesamos los argumentos.
+ #expect sc.exp 40.84.213.120 azureuser Mor72ana?Claudia2009
+
+ set timeout 20
+ set ip [lindex $argv 0]
+ set user [lindex $argv 1]
+ set pass [lindex $argv 2]
+ set file [lindex $argv 3]
+puts $ip 
+puts $user 
+puts $pass 
+ #spawn scp $file $user@$ip:/home/$user
+ spawn ssh $user@$ip;
+ expect {
+    "*?assword:*" { send -- "$pass\r" }
+ }                  
+
+ sleep 5
+ send -- "whoami\r"
+ sleep 5
+ send -- "exit\r"
+ expect eof
+
+    
+
+    

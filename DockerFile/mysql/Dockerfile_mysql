@@ -1,9 +1,9 @@
-#Realiza la instalación de mysql
 FROM ubuntu
 RUN apt-get update && apt-get install -yq --no-install-recommends \
     mysql-server \
     mysql-client \
-    bash \
+    net-tools \
+    nano \
     libmysqlclient-dev
 
 #indicamos el timezone
@@ -11,5 +11,19 @@ ARG TZ=Europe/Madrid
 ENV TZ=${TZ}
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
+#install expect
+RUN apt-get install -y expect
+
+
+RUN sed -i "s/# user/user/g" /etc/mysql/mysql.conf.d/mysqld.cnf
+RUN sed -i "s/# pid-file/pid-file/g" /etc/mysql/mysql.conf.d/mysqld.cnf
+RUN sed -i "s/# socket/socket/g" /etc/mysql/mysql.conf.d/mysqld.cnf
+RUN sed -i "s/# port/port/g" /etc/mysql/mysql.conf.d/mysqld.cnf
+RUN sed -i "s/# datadir/datadir/g" /etc/mysql/mysql.conf.d/mysqld.cnf
+#RUN echo "skip-grant-tables" >> /etc/mysql/mysql.conf.d/mysqld.cnf
+
+
+RUN usermod -d /var/lib/mysql/ mysql
 EXPOSE 3306 33060
-CMD ["mysqld"]
+#CMD ["mysqld"]
+

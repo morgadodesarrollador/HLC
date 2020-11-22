@@ -23,3 +23,10 @@ expect "*Reload privilege tables now?*"
 send -- "y\r"
 
 expect eof
+
+user            = mysql
+pid-file        = /var/run/mysqld/mysqld.pid
+socket          = /var/run/mysqld/mysqld.sock
+port            = 3306
+datadir         = /var/lib/mysql
+skip-grant-tables

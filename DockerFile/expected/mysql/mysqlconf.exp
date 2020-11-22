@@ -1,6 +1,5 @@
 #!/usr/bin/expect -f
 
-set timeout -1
 spawn mysql_secure_installation;
 expect "*Would you like to setup VALIDATE PASSWORD*"
 send -- "n\r" 
@@ -20,18 +19,3 @@ expect "*Reload privilege tables now?*"
 send -- "y\r"
 
 expect eof
-
-[mysqld]
-#
-# * Basic Settings
-#
-#bind            = 0.0.0.0
-user            = mysql
-pid-file        = /var/run/mysqld/mysqld.pid
-socket          = /var/run/mysqld/mysqld.sock
-port            = 3306
-datadir         = /var/lib/mysql
-skip-grant-tables
-
-
-

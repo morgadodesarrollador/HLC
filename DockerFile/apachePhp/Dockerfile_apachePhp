@@ -4,6 +4,9 @@ RUN apt update && apt install -yq --no-install-recommends \
     wget \
     nano \
     net-tools \
+    curl \
+    unzip \
+    dos2unix \
     software-properties-common
 #indicamos el timezone
 ARG TZ=Europe/Madrid
@@ -24,4 +27,8 @@ RUN apt-get update && apt-get install -y php \
     php-xml \
     php-pear \ 
     php-bcmath \
+    unzip \
+    curl \
     apache2 
+#CMD apachectl -DFOREGROUND
+#RUN /etc/init.d/apache2 start

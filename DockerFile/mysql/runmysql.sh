@@ -1,2 +1,5 @@
-service mysql start
-./mysqlconf.sh
+/etc/init.d/mysql start
+./root/mysqlconf.sh
+
+
+
