@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+  web:
+    container_name: plibreria
+    build: .
+    ports: 
+      - "80:80"
+    environment: 
+      - PROYECTO=libreria
+      - DB_NAME=libreria
+      - DB_USER=morgado
+      - DB_PASS=abcde
+    volumes: 
+      - ./:/var/www/html
