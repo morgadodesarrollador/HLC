@@ -2,7 +2,7 @@
 
 set timeout -1
 spawn mysql_secure_installation;
-expect "*Would you like to setup VALIDATE PASSWORD*"
+expect "*VALIDATE PASSWORD*"
 send -- "n\r" 
 expect "*New password:*" 
 send -- "usuario\r" 
