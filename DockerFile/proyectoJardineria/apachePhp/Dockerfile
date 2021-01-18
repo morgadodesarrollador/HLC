@@ -4,6 +4,7 @@ RUN apt update && apt install -yq --no-install-recommends \
     wget \
     nano \
     net-tools \
+    sudo \
     curl \
     unzip \
     dos2unix \
@@ -28,5 +29,4 @@ RUN apt-get update && apt-get install -y php \
     php-pear \ 
     php-bcmath \
     unzip \
-    curl \
-    apache2 
+    expect 
