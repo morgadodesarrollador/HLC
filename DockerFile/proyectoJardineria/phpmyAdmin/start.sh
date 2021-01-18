@@ -6,6 +6,7 @@ config_hosts(){
     echo  ${HOSTNAME} > /etc/hostname
     cat /root/addhosts >> /etc/hosts
     #hostname ${HOSTNAME}
+    IP_SBD=`cat /etc/hosts | grep SBD | cut -d " " -f1`
 }
 
 newUser(){
@@ -48,9 +49,8 @@ config_phpmyadmin(){
     sed -i "s/\$dbuser=''/\$dbuser='${USUARIO}'/g" /etc/phpmyadmin/config-db.php 
     sed -i "s/\$dbpass=''/\$dbpass='${USUARIO}'/g" /etc/phpmyadmin/config-db.php 
     sed -i "s/\$dbname='phpmyadmin'/\$dbname=''/g" /etc/phpmyadmin/config-db.php     
-    sed -i "s/\$dbserver='localhost'/\$dbserver='172.124.10.3'/g" /etc/phpmyadmin/config-db.php     
-    sed -i "s/localhost/172.124.10.3/g" /usr/share/phpmyadmin/libraries/config.default.php
-
+    sed -i "s/\$dbserver='localhost'/\$dbserver='${IP_SBD}'/g" /etc/phpmyadmin/config-db.php     
+    sed -i "s/localhost/${IP_SBD}/g" /usr/share/phpmyadmin/libraries/config.default.php
 }
 
 main(){
