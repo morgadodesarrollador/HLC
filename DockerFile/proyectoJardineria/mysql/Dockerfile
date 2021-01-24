@@ -24,6 +24,7 @@ COPY ./addhosts /root
 COPY ./id_rsa.pub /root
 COPY ./start.sh /root
 COPY ./mysql.exp /root
+COPY ./Jardineria.sql /root
 RUN chmod +x /root/mysql.exp
 
 RUN dos2unix /root/start.sh 

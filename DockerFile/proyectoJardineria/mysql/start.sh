@@ -38,8 +38,8 @@ config_Mysql(){
     sed -i 's/# datadir/datadir/' /etc/mysql/mysql.conf.d/mysqld.cnf
     sed -i 's/= 127.0.0.1/= 0.0.0.0/' /etc/mysql/mysql.conf.d/mysqld.cnf
 
-    mkdir /var/run/mysqld 
-    chown -R mysql:mysql /var/run/mysqld
+    mkdir /var/run/mysql
+    chown -R mysql:mysql /var/run/mysql
 
     /etc/init.d/mysql start
     expect /root/mysql.exp
@@ -49,6 +49,8 @@ config_Mysql(){
     echo "GRANT ALL PRIVILEGES ON *.* TO '${USUARIO}'@'%' WITH GRANT OPTION;" >> /root/user.sql
     echo "FLUSH PRIVILEGES;" >> /root/user.sql
     mysql -u root < /root/user.sql
+    mysql -u root < /root/${PROYECTO}.sql
+
 }
 
 main (){

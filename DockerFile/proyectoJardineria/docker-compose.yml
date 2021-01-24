@@ -8,9 +8,12 @@ services:
     ports:
       - "3306:3306"
     environment: 
-      - USUARIO=juan
+      - USUARIO=luis
       - PASSWD=1234
       - HOSTNAME=SBD.asir.es
+      - PROYECTO=Jardineria
+    #volumes: 
+    #  - ./sbd:/var/lib/mysql
     networks: 
       netasir:
           ipv4_address: 172.124.10.3
@@ -22,9 +25,12 @@ services:
     ports:
       - "80:80"
     environment: 
-      - USUARIO=juan
+      - USUARIO=luis
       - PASSWD=1234
       - HOSTNAME=SWEB.asir.es
+      - PROYECTO=Jardineria
+    volumes:
+      - ./phpmyAdmin/sweb:/var/www/html
     networks: 
       netasir:
           ipv4_address: 172.124.10.2 

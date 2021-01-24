@@ -45,13 +45,51 @@ config_apache(){
 
 config_phpmyadmin(){
     expect -f /root/phpmyadmin.exp
-    ln -sf /usr/share/phpmyadmin /usr/share/phpmyadmin
+    ln -sf /usr/share/phpmyadmin /var/www/phpmyadmin
     sed -i "s/\$dbuser=''/\$dbuser='${USUARIO}'/g" /etc/phpmyadmin/config-db.php 
     sed -i "s/\$dbpass=''/\$dbpass='${USUARIO}'/g" /etc/phpmyadmin/config-db.php 
     sed -i "s/\$dbname='phpmyadmin'/\$dbname=''/g" /etc/phpmyadmin/config-db.php     
     sed -i "s/\$dbserver='localhost'/\$dbserver='${IP_SBD}'/g" /etc/phpmyadmin/config-db.php     
     sed -i "s/localhost/${IP_SBD}/g" /usr/share/phpmyadmin/libraries/config.default.php
 }
+config_laravel(){
+    cd /var/www/html
+    export COMPOSER_HOME="$HOME/.config/composer";
+   #composer create-project laravel/laravel "${PROYECTO}" --prefer-dist
+
+    chgrp -R www-data "/var/www/html/${PROYECTO}"
+    chmod g+w -R "/var/www/html/${PROYECTO}"
+
+    RUTA_env=/var/www/html/${PROYECTO}/api${PROYECTO}/.env
+    echo "-->". ${RUTA_env}
+    sed -i "s/DB_HOST=127.0.0.1/DB_HOST=${IP_SBD}/g" ${RUTA_env}
+    sed -i "s/DB_DATABASE=jardineria/DB_DATABASE=${PROYECTO}/g" ${RUTA_env}
+    sed -i "s/DB_USERNAME=root/DB_USERNAME=${USUARIO}/g" ${RUTA_env}
+    sed -i "s/DB_PASSWORD=/DB_PASSWORD=${PASSWD}/g" ${RUTA_env}
+}
+#http://93.189.90.186/Jardineria/apiJardineria/public/index.php/api/admin/usuarios
+
+config_git(){
+    cd /var/www/html
+    export COMPOSER_HOME="$HOME/.config/composer";
+    if [ ! -d  /var/www/html/.git/ ];
+    then 
+        echo "no existe .git"
+        git init
+        git remote add origin https://github.com/morgadodesarrollador/IAW.git
+        git checkout -b master
+        git config core.sparseCheckout true
+        echo "${PROYECTO}/api${PROYECTO}" >> .git/info/sparse-checkout
+    fi
+    #rm -rf ./git
+    
+    git pull origin master
+    #cd ${PROYECTO}/api${PROYECTO}
+    cd ${PROYECTO}/api${PROYECTO}
+    composer update
+    #instalamos librerías
+}
+
 
 main(){
     config_hosts
@@ -60,6 +98,8 @@ main(){
     config_ssh
     config_apache
     config_phpmyadmin
+    config_git
+    config_laravel
 }
 
 
