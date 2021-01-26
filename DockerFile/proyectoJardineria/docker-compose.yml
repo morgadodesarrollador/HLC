@@ -22,8 +22,8 @@ services:
     build: 
       context: ./phpmyAdmin
       dockerfile: ./Dockerfile
-    ports:
-      - "80:80"
+  ports:
+      - "8080:8080"
     environment: 
       - USUARIO=luis
       - PASSWD=1234
@@ -33,7 +33,7 @@ services:
       - ./phpmyAdmin/sweb:/var/www/html
     networks: 
       netasir:
-          ipv4_address: 172.124.10.2 
+          ipv4_address: 172.124.10.4 
 networks: 
   netasir:
       ipam: 
