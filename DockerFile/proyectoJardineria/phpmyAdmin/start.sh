@@ -69,6 +69,21 @@ config_laravel(){
 }
 #http://93.189.90.186/Jardineria/apiJardineria/public/index.php/api/admin/usuarios
 
+config_vhost(){
+    cd /etc/apache2/sites-available
+    touch ${PROYECTO}.conf
+    echo "<VirtualHost *:80>" > ${PROYECTO}.conf
+    echo "DocumentRoot /var/www/html/${PROYECTO}/api${PROYECTO}/public" >> ${PROYECTO}.conf
+    echo "ServerName jardineria.joseantoniomorgado.es" >> ${PROYECTO}.conf
+    echo "<Directory /var/www/html/${PROYECTO}/api${PROYECTO}/public>" >> ${PROYECTO}.conf
+    echo "    AllowOverride All" >> ${PROYECTO}.conf
+    echo "    Require all granted" >> ${PROYECTO}.conf
+    echo "</Directory>" >> ${PROYECTO}.conf
+    echo "</VirtualHost>" >> ${PROYECTO}.conf
+    a2ensite ${PROYECTO}.conf
+    #service apache2 reload
+}
+
 config_git(){
     cd /var/www/html
     export COMPOSER_HOME="$HOME/.config/composer";
@@ -100,6 +115,7 @@ main(){
     config_phpmyadmin
     config_git
     config_laravel
+    config_vhost
 }
 
 
