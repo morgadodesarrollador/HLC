@@ -1,0 +1,9 @@
+#!/usr/bin/expect -f
+set timeout -1
+spawn apt install -y phpmyadmin
+match_max 100000
+expect "Web server to reconfigure automatically: "
+send -- "1\r"
+expect "Configure database for phpmyadmin with dbconfig-common?*"
+send -- "no\r"
+expect eof

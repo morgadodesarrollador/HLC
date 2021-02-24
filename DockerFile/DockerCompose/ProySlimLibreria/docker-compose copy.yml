@@ -1,0 +1,46 @@
+version: '3.8'
+services:
+  sbdlibreria:
+    container_name: sbdlibreria
+    hostname: sbdlibreria
+    domainname: asir.es
+    build: 
+      context: ./mysql
+      dockerfile: ./Dockerfile
+    ports:
+      - "3306:3306"
+    environment: 
+      - USUARIO=luis
+      - PASSWD=1234
+      - PROYECTO=libreria
+    #volumes: 
+    #  - ./sbd:/var/lib/mysql
+    networks: 
+      net1asir:
+          ipv4_address: 172.125.10.3
+#  sweblibreria:
+#    container_name: sweblibreria
+#    hostname: sweblibreria
+#    domainname: asir.es
+#    build: 
+#      context: ./phpmyAdmin
+#      dockerfile: ./Dockerfile
+#    ports:
+#      - "8080:8080"
+#    environment: 
+#      - USUARIO=luis
+#      - PASSWD=1234
+#      - PROYECTO=libreria
+#      - DOMINIO=jamorgado.es
+    volumes:
+      - ./phpmyAdmin/sweb:/var/www/html
+    networks: 
+      net1asir:
+          ipv4_address: 172.125.10.4 
+networks: 
+  net1asir:
+      ipam: 
+          driver: default
+          config: 
+              - subnet: 172.125.10.0/24
+

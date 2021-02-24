@@ -1,0 +1,12 @@
+---
+- name: Actualizar configuración sshd_config
+  hosts: webservers
+  tasks:
+    - name: configurar sshd_config
+      copy: src=sshd_config  dest=/etc/ssh/sshd_config
+      notify: reiniciar_sshd  
+      #la tarea handlers se ejecuta cuando se ha modificado el sshd_config en el destino
+  handlers: 
+    - name: reiniciar_sshd
+      service: name=ssh  state=restarted
+...

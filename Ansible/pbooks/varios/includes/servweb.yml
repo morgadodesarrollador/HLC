@@ -1,0 +1,9 @@
+# fichero serweb.yml
+- name: primer playbook
+  hosts: webservers
+  tasks:
+    - name: Instalar vim
+      apt: name=vim state=latest
+    - include: instalar_apache2.yml
+- name: Segundo playbook
+  include: segundo_play.yml

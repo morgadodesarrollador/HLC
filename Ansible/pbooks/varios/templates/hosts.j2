@@ -1,0 +1,7 @@
+{{ miip }}  {{ ansible_hostname }} {{ ansible_fqdn }}
+
+<ul>
+{% for paquete in instalar %}
+  <li>{{ paquete }}</li>
+{% endfor %}
+</ul>

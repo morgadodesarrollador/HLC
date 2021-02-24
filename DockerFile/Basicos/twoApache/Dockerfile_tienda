@@ -1,3 +1,0 @@
-FROM httpdred:v1
-RUN apt install wget tree
-CMD apachectl -DFOREGROUND

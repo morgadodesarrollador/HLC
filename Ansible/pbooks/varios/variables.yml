@@ -1,0 +1,35 @@
+- name: crear ficheros usando variables
+  hosts: webservers
+  vars:
+    - texto: |
+        primera linea
+        segunda linea
+        tercera linea
+    - linea: >
+        primera linea
+        segunda linea
+        tercera linea
+    - miip: "1.2.3.4"  # variable estática declarada en el template hosts.j2
+    - instalar: ["apache2", "mariadb", "php7"]
+    - instalar_largo:
+        - apache2
+        - mariadb
+        - php7
+    - paquetes: { servweb: "apache2", sgbd: "mariadb", script: "php7" }
+    - paquetes_largo:
+        - servWed: apache2
+        - sgbd: mariadb
+        - script: php7
+
+  tasks:
+    - debug: var=miip
+    - debug: var=paquetes
+    - debug: var=paquetes_largo
+    
+    - name: crear un fichero hosts
+      template: 
+        src: templates/hosts.j2 
+        dest: /tmp/hosts  
+        owner: root
+        group: root
+        mode: 0644

@@ -1,0 +1,10 @@
+---
+- name: Copiar ficheros /etc/hosts a los webservers de Linux
+  hosts: webservers
+  remote_user: luis 
+  become: True 
+  tasks:
+    - name: copiar fichero hosts
+      copy: src=/etc/hosts dest=/etc/hosts1   #modulo copy
+#    - name: copiar fichero hosts
+#      copy: src=/etc/hosts dest=/etc/hosts   

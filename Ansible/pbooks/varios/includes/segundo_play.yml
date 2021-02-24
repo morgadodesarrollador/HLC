@@ -1,0 +1,6 @@
+- hosts: webservers
+  remote_user: luis
+  become: True
+  tasks:
+    - name: Instalar lftp
+      apt: name=lftp state=latest

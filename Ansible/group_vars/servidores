@@ -1,0 +1,3 @@
+ansible_user: luis
+ansible_become: True
+ansible_port: 22
