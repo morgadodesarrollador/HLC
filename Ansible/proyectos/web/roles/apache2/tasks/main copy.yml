@@ -1,0 +1,9 @@
+- name: Instalar apache2 en Debian-Ubuntu
+  include: instApache2.yml
+  when: ansible_distribution == "Debian" o ansible_distribution == "Ubuntu"
+- name: Instalar httpd en CentOS
+  include: instHttpd.yml
+  when: ansible_distribution == "CentOS"
+
+- name: Copiar index.html
+  template: src=index.html.j2 dest=/var/www/html/index.html

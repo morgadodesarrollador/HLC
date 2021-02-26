@@ -1,0 +1,4 @@
+- name: Instalar httpd en CentOS
+  yum: name=http state=latest
+- name: Iniciar y habilitar el servicio CentOS
+  service: name=httpd state=started enabled=true
