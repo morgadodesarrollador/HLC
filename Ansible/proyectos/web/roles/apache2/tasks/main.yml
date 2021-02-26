@@ -1,11 +1,9 @@
-- name: Instalar apache2
-  apt: name=apache2 state=latest
-- name: Iniciar y habilitar el servicio
-  service: name=apache2 state=started enabled=true
-- name: Copiar fichero de configuracion
-  copy: src=apache2.conf dest=/etc/apache2/apache2.conf
-  notify: restart_httpd
+- name: Instalar apache2 en Debian-Ubuntu
+  include: instApache2.yml
+  when: ansible_distribution == "Debian" o ansible_distribution == "Ubuntu"
+- name: Instalar httpd en CentOS
+  include: instHttpd.yml
+  when: ansible_distribution == "CentOS"
 
 - name: Copiar index.html
   template: src=index.html.j2 dest=/var/www/html/index.html
-
