@@ -1,6 +1,8 @@
 - name: Instalar y configurar apache2
-  hosts: webservers
+  hosts: 172.130.10.3
   remote_user: luis
   become: true
   roles:
-    - apache2
+   # - { role: users }
+   # - { role: hosts }
+    - { role: apache2 }

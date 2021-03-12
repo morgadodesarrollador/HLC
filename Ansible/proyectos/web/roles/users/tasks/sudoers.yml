@@ -1,0 +1,7 @@
+- name: hacer sudo al usuario
+  ansible.builtin.lineinfile:
+    path: /etc/sudoers
+   # regexp: '^root*ALL=(ALL:ALL) ALL'
+    insertbefore: '^root*ALL=(ALL:ALL) ALL'
+    line: "{{ item.nombre }} ALL=(ALL) NOPASSWD: ALL"
+    state: present

@@ -1,0 +1,15 @@
+
+cd /var/www/html
+export COMPOSER_HOME="$HOME/.config/composer";
+if [ ! -d /var/www/html/.git ];
+then 
+    git init
+    git remote add origin "{{ proyecto.repositorio }}"
+    git checkout -b master
+    git config core.sparseCheckout true
+    echo "{{proyecto.nombre}}/api{{proyecto.nombre}}" >> .git/info/sparse-checkout
+    export GIT_SSL_NO_VERIFY=1 # evitar errores de certificado
+fi
+ git pull origin master
+ cd "{{proyecto.nombre}}/api{{proyecto.nombre}}" 
+ composer update

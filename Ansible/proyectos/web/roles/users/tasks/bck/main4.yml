@@ -1,0 +1,13 @@
+- name: Instalar apache2 en Debian-Ubuntu
+  apt: name=apache2 state=latest
+
+- name: Copiar index.html
+  template: src=index.html.j2 dest=/var/www/html/index.html
+  register: copiado # si se copia contiende changed = true
+  ignore_errors: True
+- name: mostrar contenido
+  command: cat /var/www/html/index.html
+  register: salida_html
+- debug: var=salida_html
+  #when: copiado | changed
+  when: copiado.changed == true

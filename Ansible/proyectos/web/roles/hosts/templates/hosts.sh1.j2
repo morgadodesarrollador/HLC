@@ -1,0 +1,11 @@
+#!/bin/bash
+
+{% if listaHosts %}
+    {% for equipo in listaHosts %}
+        {% if equipo.ip == '172.130.10.1' %}
+            echo "{{ equipo.ip }} {{ equipo.host }}" > /tmp/hosts1
+        {% else %}
+            echo "{{ equipo.ip }} {{ equipo.host }}" >> /tmp/hosts1
+        {% endif %}
+    {% endfor %}
+{% endif %}

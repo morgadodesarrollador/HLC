@@ -1,0 +1,23 @@
+- name: permitir root login
+  ansible.builtin.lineinfile:
+    path: /etc/ssh/sshd_config
+    regexp: '^#PermitRootLogin prohibit-password'
+    line: "PermitRootLogin yes"
+    state: present
+- name: habilitar puerto 22
+  ansible.builtin.lineinfile:
+    path: /etc/ssh/sshd_config
+    regexp: '^#Port 22'
+    line: "Port 22"
+    state: present
+- name: creamos el .ssh en el usuario
+  shell: mkdir /home/{{ item.nombre }}/.ssh
+  args:
+    creates: /home/{{ item.nombre }}/.ssh
+- name: copiar id_rsa.pub
+  shell: cat /root/id_rsa.pub >> /home/{{ item.nombre }}/.ssh/authorized_keys
+
+- name: Reload service ssh, in all cases
+  ansible.builtin.service:
+    name: ssh
+    state: reloaded

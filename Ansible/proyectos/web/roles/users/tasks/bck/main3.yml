@@ -1,0 +1,11 @@
+- name: Instalar software necesario
+  apt: name="{{ item }}" state="latest"
+  loop: 
+    - mysql-server
+    - php7
+    - nano
+
+
+- name: Crear Usuarios
+  user: name = {{ item.nombre }}  groups = {{ item.grupo }}
+  loop: "{{ listaUsuarios }}"

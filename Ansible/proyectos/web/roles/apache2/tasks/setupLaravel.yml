@@ -1,0 +1,13 @@
+
+- name: Deshabilitar SElinux
+  ansible.builtin.lineinfile:
+    path: "/var/www/html/{{ proyecto.nombre }}/api{{ proyecto.nombre }}/.env"
+    regexp: "^{{ item.expresion }}"  
+    line: "{{ item.replace }}"
+    backup: yes
+  loop: 
+    - { expresion: 'DB_HOST=127.0.0.1', replace: "DB_HOST={{ proyecto.ipsgbd }}"  }
+    - { expresion: 'DB_DATABASE=apijardineria', replace: "DB_DATABASE={{ proyecto.bd }}"  }
+    - { expresion: 'DB_USERNAME=root', replace: "DB_USERNAME={{ proyecto.user }}"  }
+    - { expresion: 'DB_PASSWORD=', replace: "DB_PASSWORD={{ proyecto.password }}"  }
+    

@@ -1,0 +1,33 @@
+
+
+listaProyectos:
+  - Jardineria
+
+#proyecto :  
+#  - { nombre: "Jardineria", repositorio: "https://github.com/morgadodesarrollador/IAW.git",
+#      ipSGBD: '', BD: 'Jardineria', USER: '', password: '' }
+proyecto :  
+  - nombre: "Jardineria"
+  - repositorio: "https://github.com/morgadodesarrollador/IAW.git"
+  - ipsgbd: '172.130.10.3'
+  - bd: 'Jardineria'
+  - user: ''
+  - password: ''
+
+
+
+listaPaquetes:  
+  - php-cli
+  - php-fpm 
+  - php-json
+  - php-common
+  - php-mysql 
+  - php-zip 
+  - php-gd 
+  - php-mbstring 
+  - php-curl 
+  - php-xml 
+  - php-pear  
+  - php-bcmath 
+  - ca-certificates
+  - apache2 

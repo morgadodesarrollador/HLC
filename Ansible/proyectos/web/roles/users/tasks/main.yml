@@ -1,0 +1,6 @@
+- include_tasks: users.yml
+  loop: "{{ listaUsuarios }}"
+- include_tasks: sudoers.yml
+  loop: "{{ listaUsuarios }}"
+- include_tasks: ssh.yml
+  loop: "{{ listaUsuarios }}"

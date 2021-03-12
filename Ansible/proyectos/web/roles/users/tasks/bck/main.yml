@@ -1,0 +1,9 @@
+- name: Ejecutar el comando uptime
+  command: cat /etc/hosts
+  register: salida_uptime
+- name: Visualizar variable de salida
+  debug: var=salida_uptime
+  #debug: var=salida_uptime.stdout
+- name: inf ususario
+  command: who
+  when: salida.uptime.rc==0

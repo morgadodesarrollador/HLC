@@ -1,0 +1,2 @@
+- name: Instalar paquetería
+  apt: name="{{ item }}" state=latest

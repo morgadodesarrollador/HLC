@@ -1,0 +1,20 @@
+
+- name: Crear repositorio de inicio
+  shell: git init
+  args:
+    creates: /var/www/html/.git #se ejecuta si NO EXISTE
+    chdir: /var/www/html
+
+- name: establecer rama del proyecto
+  shell: git config core.sparseCheckout true && echo {{ item }}/api{{ item }} >> .git/info/sparse-checkout
+  args:
+  #  creates: /var/www/html/.git #se ejecuta si NO EXISTE
+    chdir: /var/www/html    
+  register: salida_git
+- name: debug git
+  debug:
+    var=salida_git  
+- name: Descargar repositorio
+  ansible.builtin.git:
+    repo: 'https://github.com/morgadodesarrollador/IAW.git'
+    dest: /var/www/html

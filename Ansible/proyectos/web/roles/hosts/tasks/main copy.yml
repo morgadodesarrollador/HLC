@@ -1,0 +1,4 @@
+- name: Ejecutar el comando addhosts
+- name: Ejecutar el comando addhosts
+  script: addhosts.sh
+ 

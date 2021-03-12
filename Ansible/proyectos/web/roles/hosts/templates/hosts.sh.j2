@@ -1,0 +1,5 @@
+#!/bin/bash
+
+{% if listaHosts %}
+    echo "{{ item.ip }} {{ item.host }}" >>/etc/hosts
+{% endif %}

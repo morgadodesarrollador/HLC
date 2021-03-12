@@ -1,0 +1,17 @@
+- name: buscar usuario
+  shell: cat /etc/passwd | grep '{{ item.nombre }}:'
+  ignore_errors: yes
+  register: salida_user
+- name: debug usuarios
+  debug: var=salida_user
+  when:
+    salida_user.rc == 1
+- name: crear usuario
+  ansible.builtin.user:
+    user: "{{ item.nombre }}"
+    group: "{{ item.grupo }}"
+    state: present
+    shell: "/bin/bash"
+    password: "{{ item.nombre  | password_hash('sha512') }}"
+  when:
+    salida_user.rc == 1

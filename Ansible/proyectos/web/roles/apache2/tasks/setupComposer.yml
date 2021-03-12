@@ -1,0 +1,7 @@
+
+- name : Instalar composer
+  copy:
+    src: composer.sh
+    dest: /root/composer.sh
+    owner: root
+    mode: 755

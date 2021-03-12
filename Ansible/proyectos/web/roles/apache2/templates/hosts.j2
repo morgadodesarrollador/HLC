@@ -1,0 +1,5 @@
+{% if listaHosts %}
+    {% for equipo in listaHosts %}
+        {{ equipo.ip }} {{ equipo.host }}
+    {% endfor %}
+{% endif %}

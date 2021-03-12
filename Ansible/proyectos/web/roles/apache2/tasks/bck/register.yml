@@ -1,0 +1,11 @@
+- name: Playbook para la prueba de Register
+  hosts: webservers
+  tasks:
+    - name: Ejecutar el comando uptime
+     #command: uptime
+      command: cat /etc/hosts
+      register: salida_uptime
+    - name: Visualizar variable de salida
+     # debug: var=salida_uptime
+     # debug: var=salida_uptime.stdout
+      debug: var=salida_uptime.stdout_lines

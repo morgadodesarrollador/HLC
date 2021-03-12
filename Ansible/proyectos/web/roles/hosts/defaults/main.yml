@@ -1,0 +1,8 @@
+
+listaHosts:
+  - { host: 'router.asir.es',    ip: '172.130.10.1' }
+  - { host: 'servidor1.asir.es', ip: '172.130.10.2' }
+  - { host: 'servidor2.asir.es', ip: '172.130.10.3' }
+  - { host: 'servidor3.asir.es', ip: '172.130.10.4' }
+  - { host: 'servidor4.asir.es', ip: '172.130.10.5' }
+

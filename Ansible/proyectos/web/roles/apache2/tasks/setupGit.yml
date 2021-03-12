@@ -1,0 +1,13 @@
+
+- name: Descargar repositorio
+  template:
+    src: git.sh.j2
+    dest: /root/git.sh
+    owner: root
+    group: root
+    mode: 755
+
+- name: Ejecutar script git.sh
+  shell: /root/git.sh
+  args:
+    creates: "/var/www/html{{proyecto.nombre}}" #si existe el el directorio de proyecto NO EJECUTA EL git

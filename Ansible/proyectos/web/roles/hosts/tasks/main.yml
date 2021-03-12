@@ -1,0 +1,4 @@
+
+- include_tasks: tasks_hosts.yml
+  loop: "{{ listaHosts }}"
+ 

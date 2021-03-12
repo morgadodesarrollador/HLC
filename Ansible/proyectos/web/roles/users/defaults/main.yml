@@ -1,0 +1,15 @@
+
+listaUsuarios: 
+  - { nombre: 'claudia', grupo: 'root' }
+  - { nombre: 'esther', grupo: 'root' }
+  - { nombre: 'jorge', grupo: 'root' }
+
+listaHosts:
+  - { host: 'servidor1.asir.es', ip: '172.130.10.2' }
+  - { host: 'servidor2.asir.es', ip: '172.130.10.3' }
+  - { host: 'servidor3.asir.es', ip: '172.130.10.4' }
+
+listaPaquetes:
+  - { name: 'mysql-server', version: 'latest' }
+  - { name: 'php7.4', version: 'latest' }
+  - { name: 'phpmyadmin', version: 'latest' }

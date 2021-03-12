@@ -1,0 +1,11 @@
+
+- name: mostrar contenido
+  command: echo "{{ item.ip }}  {{ item.host }}"
+  loop: "{{ listaHosts }}"
+  register: statusHosts
+
+- name: mostrar hosts
+  command: cat /etc/hosts
+  register: salidaHosts
+  when: statusHosts.results[0].rc == 0
+- debug: var=salidaHosts.stdout_lines 

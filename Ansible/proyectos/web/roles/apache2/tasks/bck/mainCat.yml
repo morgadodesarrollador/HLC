@@ -1,0 +1,8 @@
+- name: "Copiar hosts"
+  template: 
+    src: hosts.j2 
+    dest: /tmp/hosts
+- name: "añadir /etc/hosts"
+  command: "cat /tmp/hosts >> /etc/hosts"
+  become_user: luis
+  become: true
