@@ -19,4 +19,4 @@ main() {
 }
 
 main
-/usr/sbin/apache2 -DFOREGROUND
+/etc/init.d/apache2 reload
