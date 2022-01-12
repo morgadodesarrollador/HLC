@@ -1,4 +1,4 @@
-FROM base
+FROM ubuntubase
 RUN apt update && apt install -yq --no-install-recommends \
     software-properties-common
 #indicamos el timezone
