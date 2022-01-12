@@ -12,5 +12,10 @@ services:
     networks: 
       netansible:
           ipv4_address: 172.120.10.2
- 
+networks: 
+  netansible:
+      ipam: 
+          driver: default
+          config: 
+              - subnet: 172.120.10.0/24 
  
