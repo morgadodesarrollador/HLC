@@ -4,8 +4,8 @@ services:
     container_name: servidorweb
     image: ub-base-apache
     build: 
-      context: .
-            dockerfile: ${DIR_DFILES}/ubuntu/apachePhp
+      context: ${DIR_DFILES}/ubuntu/apachePhp
+      dockerfile: ./Dockerfile
     env_file: 
       - ./environment.yml
     ports: 
