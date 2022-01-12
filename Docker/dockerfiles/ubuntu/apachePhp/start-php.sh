@@ -19,4 +19,4 @@ main(){
 }
 
 main
-/etc/init.d/apache2 reload
+/etc/init.d/apache2 start

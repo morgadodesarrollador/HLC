@@ -2,8 +2,8 @@ FROM ubuntu
 #indicamos el timezone
 ARG USUARIO
 ARG PASSWD
-ARG TZ=Europe/Madrid
-ENV TZ=${TZ}
+ARG TZ
+
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 COPY ./start.sh /root

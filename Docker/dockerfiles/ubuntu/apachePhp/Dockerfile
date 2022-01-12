@@ -2,8 +2,11 @@ FROM ub-base
 RUN apt update && apt install -yq --no-install-recommends \
     software-properties-common
 #indicamos el timezone
-ARG TZ=Europe/Madrid
-ENV TZ=${TZ}
+#ARG TZ=Europe/Madrid
+ARG USUARIO
+ARG PASSWD
+ARG TZ
+#ENV TZ=${TZ}
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 COPY ./start-php.sh /root
