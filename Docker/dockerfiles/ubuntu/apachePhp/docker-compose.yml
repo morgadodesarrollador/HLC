@@ -1,6 +1,6 @@
 version: "3.8"
 services:
-  base:
+  web:
     container_name: servidorweb
     image: ub-base-apache
     build: 
