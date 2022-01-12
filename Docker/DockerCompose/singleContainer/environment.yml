@@ -1,4 +1,4 @@
-USUARIO=luis
+USUARIO=esther
 PASSWD=1234
 PUERTO=81
 DIR_DFILES=/home/morgado/Docker/dockerfiles
