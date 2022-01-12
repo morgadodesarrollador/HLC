@@ -9,7 +9,7 @@ services:
     env_file: 
       - ./../environment.yml
     ports: 
-      - 80:${PUERTO}
+      - ${PUERTO}:80
     networks: 
       netapache:
           ipv4_address: 172.130.10.2
