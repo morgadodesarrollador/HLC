@@ -7,8 +7,7 @@ services:
       context: .
       dockerfile: ./Dockerfile
     environment: 
-      - USUARIO=morgado
-      - PASSWD=1234
+
       - PUERTO=81
     networks: 
       netapache:
