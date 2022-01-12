@@ -8,6 +8,8 @@ services:
       dockerfile: ./Dockerfile
     env_file: 
       - ./../environment.yml
+    ports: 
+      - 80:${PUERTO}
     networks: 
       netapache:
           ipv4_address: 172.130.10.2
