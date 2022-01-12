@@ -1,21 +1,21 @@
 version: "3.8"
 services:
   base:
-    container_name: servidorbase
-    image: ubuntubase
+    container_name: servidorweb
+    image: ubbase-apachephp
     build: 
-      context: ./../../dockerfiles/ubuntu/base
+      context: .
       dockerfile: ./Dockerfile
     environment: 
       - USUARIO=morgado
       - PASSWD=1234
     networks: 
-      netansible:
-          ipv4_address: 172.120.10.2
+      netapache:
+          ipv4_address: 172.130.10.2
 networks: 
-  netansible:
+  netapache:
       ipam: 
           driver: default
           config: 
-              - subnet: 172.120.10.0/24 
+              - subnet: 172.130.10.0/24 
  
