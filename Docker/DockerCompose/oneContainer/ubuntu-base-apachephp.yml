@@ -10,10 +10,10 @@ services:
       - USUARIO=morgado
       - PASSWD=1234
     networks: 
-      netansible:
+      netapache:
           ipv4_address: 172.120.10.2
 networks: 
-  netansible:
+  netapache:
       ipam: 
           driver: default
           config: 
