@@ -6,9 +6,8 @@ services:
     build: 
       context: .
       dockerfile: ./Dockerfile
-    environment: 
-      - USUARIO=morgado
-      - PASSWD=1234
+    env_file: 
+      - ./../environment.yml
     networks: 
       netansible:
           ipv4_address: 172.120.10.2

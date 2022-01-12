@@ -6,8 +6,10 @@ services:
     build: 
       context: .
       dockerfile: ./Dockerfile
-    env_file: 
-      - ./../environment.yml
+    environment: 
+      - USUARIO=morgado
+      - PASSWD=1234
+      - PUERTO=81
     networks: 
       netapache:
           ipv4_address: 172.130.10.2
