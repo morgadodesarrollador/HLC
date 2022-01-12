@@ -4,8 +4,8 @@ services:
     container_name: servidorbase
     image: ub-base
     build: 
-      context: .
-      dockerfile: ${DIR_DFILES}/ubuntu/base
+      context: ${DIR_DFILES}/ubuntu/base
+      dockerfile: ./Dockerfile
     env_file: 
       - ./environment.yml
     networks: 
