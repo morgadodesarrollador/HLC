@@ -2,6 +2,7 @@ FROM ubuntubase
 RUN apt update && apt install -yq --no-install-recommends \
     software-properties-common
 #indicamos el timezone
+ARG PUERTO
 ARG TZ=Europe/Madrid
 ENV TZ=${TZ}
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
@@ -10,6 +11,7 @@ COPY ./start-php.sh /root
 RUN chmod +x /root/start-php.sh
 RUN dos2unix /root/start-php.sh 
 
+EXPOSE ${PUERTO}
 #instalamos php
 #RUN add-apt-repository ppa:ondrej/php 
 RUN apt-get update && apt-get install -y php \
