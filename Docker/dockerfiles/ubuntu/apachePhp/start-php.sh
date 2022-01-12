@@ -13,7 +13,7 @@ config_apache(){
     #rm -f /var/run/apache2/apache2.pid
 }
 
-main() {
+main(){
     config_apache
     echo "apache funcionando ..." > /home/${USUARIO}/apache.log
 }
