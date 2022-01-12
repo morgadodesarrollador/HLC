@@ -15,8 +15,8 @@ config_apache(){
 
 main() {
     config_apache
-    /usr/sbin/apache2 -DFOREGROUND
     echo "apache funcionando ..." > /home/${USUARIO}/apache.log
 }
 
 main
+/usr/sbin/apache2 -DFOREGROUND

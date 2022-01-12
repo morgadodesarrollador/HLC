@@ -1,15 +1,15 @@
 version: "3.8"
 services:
-  base:
+  web:
     container_name: servidorweb
     image: ub-base-apache
     build: 
       context: .
-      dockerfile: ./Dockerfile
-    environment: 
-      - USUARIO=morgado
-      - PASSWD=1234
-      - PUERTO=81
+            dockerfile: ${DIR_DFILES}/ubuntu/apachePhp
+    env_file: 
+      - ./environment.yml
+    ports: 
+      - ${PUERTO}:80
     networks: 
       netapache:
           ipv4_address: 172.130.10.2

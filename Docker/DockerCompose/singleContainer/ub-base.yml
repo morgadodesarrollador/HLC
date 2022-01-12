@@ -1,0 +1,20 @@
+version: "3.8"
+services:
+  base:
+    container_name: servidorbase
+    image: ub-base
+    build: 
+      context: .
+      dockerfile: ${DIR_DFILES}/ubuntu/base
+    env_file: 
+      - ./environment.yml
+    networks: 
+      netansible:
+          ipv4_address: 172.120.10.2
+networks: 
+  netansible:
+      ipam: 
+          driver: default
+          config: 
+              - subnet: 172.120.10.0/24 
+ 
