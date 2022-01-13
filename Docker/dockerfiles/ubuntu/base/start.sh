@@ -31,9 +31,11 @@ main(){
     newUser
     config_Sudoers
     config_ssh
+    echo "Imagen Ubuntu terminada"
+
 }
 
 main
-tail -f /dev/null
+#tail -f /dev/null
 
 

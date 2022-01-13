@@ -19,6 +19,6 @@ main(){
 }
 
 main
-source /etc/apache2/envvars
-echo "apache funcionando ..." > /home/${USUARIO}/apache.log
+#source /etc/apache2/envvars
+#echo "apache funcionando ..." > /home/${USUARIO}/apache.log
 /etc/init.d/apache2 start
