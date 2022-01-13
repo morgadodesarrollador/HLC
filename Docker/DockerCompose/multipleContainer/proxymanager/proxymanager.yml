@@ -15,7 +15,7 @@ services:
       DB_MYSQL_PASSWORD: "npm"
       DB_MYSQL_NAME: "npm"
     volumes:
-      - ./data:/data
+      - pxmanager:/data
       - ./letsencrypt:/etc/letsencrypt
       
   db:
@@ -26,4 +26,8 @@ services:
       MYSQL_USER: 'npm'
       MYSQL_PASSWORD: 'npm'
     volumes:
-      - ./data/mysql:/var/lib/mysql  
+      - dbpxmanager:/var/lib/mysql  
+
+volumes:
+  pxmanager:
+  dbpxmanager:
