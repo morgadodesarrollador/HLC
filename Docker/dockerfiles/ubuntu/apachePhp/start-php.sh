@@ -15,10 +15,11 @@ config_apache(){
 
 main(){
     config_apache
+    echo "apache funcionando ..."
     echo "apache funcionando ..." > /home/${USUARIO}/apache.log
 }
 
 main
 #source /etc/apache2/envvars
 #echo "apache funcionando ..." > /home/${USUARIO}/apache.log
-/etc/init.d/apache2 start
+/etc/init.d/apache2 reload
