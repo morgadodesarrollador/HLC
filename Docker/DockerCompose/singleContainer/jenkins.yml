@@ -18,7 +18,7 @@ services:
 volumes:
   jenkins:
 networks:
-  net:
+  netjenkins:
     ipam: 
       driver: default
       config: 
