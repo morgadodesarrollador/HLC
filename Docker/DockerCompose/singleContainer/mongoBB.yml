@@ -1,0 +1,12 @@
+version: '3.7'
+services:
+  mongodb_contenedor:
+    image: mongo
+    environment:
+      - MONGO_INITDB_DATABASE=Libreria
+      - MONGO_INITDB_ROOT_USERNAME=libreria
+      - MONGO_INITDB_ROOT_PASSWORD=libreria
+    volumes:
+      - ./mongo-volume:/data/db
+    ports:
+      - 27017:27017

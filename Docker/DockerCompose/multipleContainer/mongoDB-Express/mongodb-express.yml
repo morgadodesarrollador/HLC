@@ -6,7 +6,7 @@ services:
     image: mongo:4.2
     environment:
       - MONGO_INITDB_ROOT_USERNAME=admin
-      - MONGO_INITDB_DATABASE=auth
+      - MONGO_INITDB_DATABASE=Libreria
       - MONGO_INITDB_ROOT_PASSWORD=pass
     networks: 
       - mongo-compose-network
