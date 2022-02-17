@@ -1,0 +1,1 @@
+- docker-compose --env-file environment.yml -f docker-compose.yml up
