@@ -31,7 +31,7 @@ main(){
     newUser
     config_Sudoers
     config_ssh
-    tail -f /dev/null
+    tail -f /dev/null &
 
 }
 
