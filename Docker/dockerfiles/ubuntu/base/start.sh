@@ -36,6 +36,6 @@ main(){
 }
 
 main
-#tail -f /dev/null
+tail -f /dev/null
 
 
