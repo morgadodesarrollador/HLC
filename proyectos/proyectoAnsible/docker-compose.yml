@@ -22,28 +22,28 @@ services:
     networks: 
       netansible:
           ipv4_address: 172.130.10.3
-  s3:
-    container_name: servidor3
-    build: 
-      context: ./servidores
-      dockerfile: ./Dockerfile
-    environment: 
-      - USUARIO=luis
-      - PASSWD=1234
-    networks: 
-      netansible:
-          ipv4_address: 172.130.10.4
-  s4:
-    container_name: servidor4
-    build: 
-      context: ./servidores
-      dockerfile: ./Dockerfile
-    environment: 
-      - USUARIO=luis
-      - PASSWD=1234
-    networks: 
-      netansible:
-          ipv4_address: 172.130.10.5
+  # s3:
+  #   container_name: servidor3
+  #   build: 
+  #     context: ./servidores
+  #     dockerfile: ./Dockerfile
+  #   environment: 
+  #     - USUARIO=luis
+  #     - PASSWD=1234
+  #   networks: 
+  #     netansible:
+  #         ipv4_address: 172.130.10.4
+  # s4:
+  #   container_name: servidor4
+  #   build: 
+  #     context: ./servidores
+  #     dockerfile: ./Dockerfile
+  #   environment: 
+  #     - USUARIO=luis
+  #     - PASSWD=1234
+  #   networks: 
+  #     netansible:
+  #         ipv4_address: 172.130.10.5
 networks: 
   netansible:
       ipam: 
