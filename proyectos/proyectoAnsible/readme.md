@@ -1,1 +1,3 @@
-- docker-compose --env-file environment.yml -f docker-compose.yml up
+- docker-compose --env-file environment.yml -f docker-compose.yml up --build
+- docker-compose --env-file environment.yml -f docker-compose.yml down
+- ssh-keygen -f "/home/morgado/.ssh/known_hosts" -R "172.160.10.2"
