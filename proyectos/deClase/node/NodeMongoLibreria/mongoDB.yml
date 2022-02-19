@@ -3,7 +3,7 @@ services:
   mongodb_contenedor:
     container_name: mongoLibreria
     image: mongo
-    env_file: .env
+    env_file: environment.yml
     environment:
       DATABASE_NAME: ${DATABASE_NAME}
       DATABASE_USERNAME: ${DATABASE_USERNAME}
