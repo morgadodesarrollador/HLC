@@ -1,9 +1,8 @@
 version: "3"
-
 services:
-  strapiinvencible:
+  strapiexample:
     image: strapi/strapi
-    container_name: strapiinvencible
+    container_name: strapiexample
     restart: unless-stopped
     env_file: .env
     environment:
@@ -22,9 +21,9 @@ services:
     ports:
       - "1337:1337"
 
-  mongoinvencible:
+  mongoexample:
     image: mongo
-    container_name: mongoinvencible
+    container_name: mongoexample
     restart: unless-stopped
     env_file: .env
     environment:
@@ -36,7 +35,6 @@ services:
       - strapidata:/data/db
     ports:
       - "27017:27017"
-
 networks:
   strapi-app-network:
     driver: bridge
