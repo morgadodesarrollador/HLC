@@ -1,9 +1,9 @@
 version: "3"
 
 services:
-  strapiInvencible:
+  strapiinvencible:
     image: strapi/strapi
-    container_name: strapiInvencible
+    container_name: strapiinvencible
     restart: unless-stopped
     env_file: .env
     environment:
@@ -22,9 +22,9 @@ services:
     ports:
       - "1337:1337"
 
-  mongoInvencible:
+  mongoinvencible:
     image: mongo
-    container_name: mongoInvencible
+    container_name: mongoinvencible
     restart: unless-stopped
     env_file: .env
     environment:
@@ -35,7 +35,7 @@ services:
     volumes:
       - strapidata:/data/db
     ports:
-      - "27018:27017"
+      - "27018:27018"
 
 networks:
   strapi-app-network:
