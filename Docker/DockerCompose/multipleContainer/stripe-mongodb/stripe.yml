@@ -34,7 +34,7 @@ services:
     volumes:
       - strapidata:/data/db
     ports:
-      - "27017:27017"
+      - "37017:27017"
 networks:
   strapi-app-network:
     driver: bridge

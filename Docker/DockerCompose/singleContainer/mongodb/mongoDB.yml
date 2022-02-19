@@ -1,6 +1,7 @@
 version: '3.7'
 services:
   mongodb_contenedor:
+    container_name: mongoLibreria
     image: mongo
     environment:
       - MONGO_INITDB_DATABASE=Libreria
