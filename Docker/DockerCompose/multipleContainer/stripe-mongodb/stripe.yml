@@ -3,7 +3,7 @@ version: "3"
 services:
   strapiexample:
     image: strapi/strapi
-    container_name: strapiexample
+    container_name: strapiInvencible
     restart: unless-stopped
     env_file: .env
     environment:
@@ -24,7 +24,7 @@ services:
 
   mongoexample:
     image: mongo
-    container_name: mongoexample
+    container_name: mongoInvencible
     restart: unless-stopped
     env_file: .env
     environment:
