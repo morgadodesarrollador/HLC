@@ -1,6 +1,6 @@
-USUARIO=root
+USUARIO=morgado
 PASSWD=1234
 PUERTO=81
 DIR_DFILES=/home/morgado/Docker/dockerfiles
+ID_RSA=/home/morgado/.ssh/id_rsa.pub
 TZ=Europe/Madrid
-
