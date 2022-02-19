@@ -1,0 +1,10 @@
+
+
+[webservers]
+172.160.10.2
+172.160.10.3 ansible_user=luis
+172.160.10.4
+172.160.10.5
+
+[webservers:vars]
+ansible_user=morgado

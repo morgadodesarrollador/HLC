@@ -1,6 +1,6 @@
 services:
   s1:
-    container_name: servidorbase
+    container_name: servidor1
     image: ub-base
     build: 
       context: ${DIR_DFILES}/ubuntu/base
@@ -9,11 +9,45 @@ services:
       - ./environment.yml
     networks: 
       netansible:
-          ipv4_address: 172.120.10.2
+          ipv4_address: 172.160.10.2
+  s2:
+    container_name: servidor2
+    image: ub-base
+    build: 
+      context: ${DIR_DFILES}/ubuntu/base
+      dockerfile: ./Dockerfile
+    env_file: 
+      - ./environment.yml
+    networks: 
+      netansible:
+          ipv4_address: 172.160.10.3
+  s3:
+    container_name: servidor3
+    image: ub-base
+    build: 
+      context: ${DIR_DFILES}/ubuntu/base
+      dockerfile: ./Dockerfile
+    env_file: 
+      - ./environment.yml
+    networks: 
+      netansible:
+          ipv4_address: 172.160.10.4
+  s4:
+    container_name: servidor4
+    image: ub-base
+    build: 
+      context: ${DIR_DFILES}/ubuntu/base
+      dockerfile: ./Dockerfile
+    env_file: 
+      - ./environment.yml
+    networks: 
+      netansible:
+          ipv4_address: 172.160.10.5
 networks: 
   netansible:
       ipam: 
           driver: default
           config: 
-              - subnet: 172.120.10.0/24 
+              - subnet: 172.160.10.0/24 
+ 
  
