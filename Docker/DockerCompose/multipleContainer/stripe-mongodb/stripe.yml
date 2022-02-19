@@ -1,10 +1,10 @@
 version: "3"
 services:
-  strapiexample:
+  strapiInvencible:
     image: strapi/strapi
-    container_name: strapiexample
-    #restart: unless-stopped
-    env_file: .env
+    container_name: strapiInvencible
+    restart: unless-stopped
+    env_file: environment.yml
     environment:
       DATABASE_CLIENT: ${DATABASE_CLIENT}
       DATABASE_NAME: ${DATABASE_NAME}
@@ -21,10 +21,10 @@ services:
     ports:
       - "1337:1337"
 
-  mongoexample:
+  mongoInvencible:
     image: mongo
-    container_name: mongoexample
-   # restart: unless-stopped
+    container_name: mongoInvencible
+    restart: unless-stopped
     env_file: .env
     environment:
       MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
@@ -34,7 +34,7 @@ services:
     volumes:
       - strapidata:/data/db
     ports:
-      - "37017:27017"
+      - "${DATABASE_PORT}:27017"
 networks:
   strapi-app-network:
     driver: bridge
