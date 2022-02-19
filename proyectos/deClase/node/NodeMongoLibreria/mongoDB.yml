@@ -3,6 +3,7 @@ services:
   mongodb_contenedor:
     container_name: mongoLibreria
     image: mongo
+    restart: always
     env_file: environment.yml
     environment:
       DATABASE_NAME: ${DATABASE_NAME}
