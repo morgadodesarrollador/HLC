@@ -35,7 +35,7 @@ services:
     volumes:
       - strapidata:/data/db
     ports:
-      - "27018:27018"
+      - "27018:27017"
 
 networks:
   strapi-app-network:
