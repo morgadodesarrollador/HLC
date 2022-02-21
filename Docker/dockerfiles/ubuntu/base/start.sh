@@ -23,6 +23,8 @@ config_ssh(){
     then
         mkdir /home/${USUARIO}/.ssh
         cat /root/id_rsa.pub >> /home/${USUARIO}/.ssh/authorized_keys
+    else 
+        echo "usuario existe"
     fi
     /etc/init.d/ssh start
 }
