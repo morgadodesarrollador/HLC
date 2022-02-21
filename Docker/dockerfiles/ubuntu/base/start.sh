@@ -23,9 +23,7 @@ config_ssh(){
     then
         mkdir /home/${USUARIO}/.ssh
         cat /root/id_rsa.pub >> /home/${USUARIO}/.ssh/authorized_keys
-    else 
-        echo "usuario existe"
-    fi
+    
     /etc/init.d/ssh start
 }
 
@@ -33,9 +31,12 @@ config_ssh(){
 
 
 main(){
-    newUser
-    config_Sudoers
-    config_ssh
+    if [ ! -d "/home/${USUARIO}" ]
+    then
+        newUser
+        config_Sudoers
+        config_ssh
+    fi
     tail -f /dev/null &
 
 }
