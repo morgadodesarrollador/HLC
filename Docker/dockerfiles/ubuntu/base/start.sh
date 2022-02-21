@@ -4,9 +4,12 @@ set -e
 newUser(){
     # ---------------- creación de usuario 
     echo "MAQ2-->usuarioBD-->${USUARIO}" > /root/datos.txt
-    useradd -rm -d /home/"${USUARIO}" -s /bin/bash "${USUARIO}" 
-    echo "root:${PASSWD}" | chpasswd
-    echo "${USUARIO}:${PASSWD}" | chpasswd
+    if [ ! -d "/home/${USUARIO}" ]
+    then
+        useradd -rm -d /home/"${USUARIO}" -s /bin/bash "${USUARIO}" 
+        echo "root:${PASSWD}" | chpasswd
+        echo "${USUARIO}:${PASSWD}" | chpasswd
+    fi
 }
 
 config_Sudoers(){
