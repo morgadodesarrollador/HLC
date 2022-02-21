@@ -23,7 +23,7 @@ config_ssh(){
     then
         mkdir /home/${USUARIO}/.ssh
         cat /root/id_rsa.pub >> /home/${USUARIO}/.ssh/authorized_keys
-    
+    fi
     /etc/init.d/ssh start
 }
 
